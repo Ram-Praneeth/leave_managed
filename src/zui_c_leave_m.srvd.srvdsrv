@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for Z_C_APPR'
+define service ZUI_C_LEAVE_M {
+  expose Z_C_APPR as LeaveApproval;
+}

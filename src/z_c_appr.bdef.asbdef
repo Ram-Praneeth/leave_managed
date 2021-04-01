@@ -1,0 +1,11 @@
+projection;
+
+define behavior for Z_C_APPR alias LeaveApproval
+use etag
+{
+  use create;
+  use update;
+  use delete;
+
+  use action acceptLeave;
+}
