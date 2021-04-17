@@ -28,7 +28,7 @@ lock master
 
   // instance action and dynamic action control
   action ( features : instance ) acceptLeave result [1] $self;
-
+action ( features : instance ) rejectLeave result [1] $self;
   //No validations
 
   // determination

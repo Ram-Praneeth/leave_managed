@@ -8,4 +8,5 @@ use etag
   use delete;
 
   use action acceptLeave;
+  use action rejectLeave;
 }

@@ -30,7 +30,8 @@ define root view entity Z_C_APPR
       
       @UI: {
                lineItem:       [ { position: 20, importance: #HIGH, label: 'Accept Leave' },
-                                 { type: #FOR_ACTION, dataAction: 'acceptLeave', label: 'Accept Leave' } ],
+                                 { type: #FOR_ACTION, dataAction: 'acceptLeave', label: 'Accept Leave' },
+                                 { type: #FOR_ACTION, dataAction: 'rejectLeave', label: 'Reject Leave' } ],
              identification: [ { position: 20, label: 'Status [O(Open)|A(Accepted)|X(Canceled)]' } ]  }
       approved        as ApprovalStatus,
 
