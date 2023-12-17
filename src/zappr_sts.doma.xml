@@ -34,6 +34,13 @@
      <DOMVALUE_L>C</DOMVALUE_L>
      <DDTEXT>Cancelled</DDTEXT>
     </DD07V>
+    <DD07V>
+     <DOMNAME>ZAPPR_STS</DOMNAME>
+     <VALPOS>0004</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>D</DOMVALUE_L>
+     <DDTEXT>Hold</DDTEXT>
+    </DD07V>
    </DD07V_TAB>
   </asx:values>
  </asx:abap>

@@ -1,14 +1,13 @@
-@AccessControl.authorizationCheck: #CHECK
+@AccessControl.authorizationCheck: #NOT_REQUIRED
 @EndUserText.label: 'Approval View'
 define root view entity Z_I_APPR
   as select from zdevl_appr
 {
-  key uuid,
-      leaveid,
+  key leaveid,
       approved,
       appr_reas,
       req_date,
-      
+
 
       /*-- Admin data --*/
       @Semantics.user.createdBy: true
@@ -18,6 +17,8 @@ define root view entity Z_I_APPR
       @Semantics.user.lastChangedBy: true
       last_changed_by,
       @Semantics.systemDateTime.lastChangedAt: true
-      last_changed_at
+      last_changed_at,
+      @Semantics.systemDateTime.localInstanceLastChangedAt: true
+      local_last_changed_at
 
 }
