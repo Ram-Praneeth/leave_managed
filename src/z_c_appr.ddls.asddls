@@ -54,6 +54,9 @@ define root view entity Z_C_APPR
          req_date        as ReqDate,
 
          @UI.hidden: true
-         last_changed_at as LastChangedAt
+         last_changed_at as LastChangedAt,
+         
+         @UI.hidden: true
+         local_last_changed_at
 
 }
