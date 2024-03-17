@@ -12,6 +12,13 @@ define root view entity Z_I_APPR
       approved_on,
       leave_exp,
 
+      @Semantics.text: true
+      case when approved = 'A' then 3
+           when approved = 'O' then 2
+           when approved = 'C' then 1
+           else 4
+           end as StatusCriticality,
+
       /*-- Admin data --*/
       @Semantics.user.createdBy: true
       created_by,
