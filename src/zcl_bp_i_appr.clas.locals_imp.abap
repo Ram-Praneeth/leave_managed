@@ -8,69 +8,6 @@ ENDCLASS.
 
 CLASS lsc_z_i_appr IMPLEMENTATION.
 
-*  METHOD adjust_numbers.
-*
-*    DATA : gt_interval TYPE cl_numberrange_intervals=>nr_interval,
-*           wa_interval LIKE LINE OF gt_interval.
-*
-*DATA leave_num type  zleaveid.
-*
-***  Initiate Interval Range
-*    wa_interval-nrrangenr = '01'.
-*    wa_interval-fromnumber = '0000000001'.
-*    wa_interval-tonumber = '9999999999'.
-*    wa_interval-procind = 'I'.
-*
-*    APPEND wa_interval TO gt_interval.
-*
-*    TRY.
-*        CALL METHOD cl_numberrange_intervals=>create  "method to create interval
-*          EXPORTING
-*            interval  = gt_interval
-*            object    = 'ZLEAVEID' "object name
-*            subobject = ''
-*          IMPORTING
-*            error     = DATA(error)
-*            error_inf = DATA(error_inf)
-*            error_iv  = DATA(error_iv).
-*      CATCH  cx_nr_object_not_found INTO DATA(lx_no_obj_found).
-*      CATCH cx_number_ranges INTO DATA(cx_number_ranges).
-*    ENDTRY.
-*
-*    TRY.
-*        cl_numberrange_runtime=>number_get(
-*        EXPORTING
-*          nr_range_nr       = '01'
-*          object            = 'ZLEAVEID'
-*          quantity          = 00000000000000000001
-*          subobject         = ''
-**        toyear            = ''
-*        IMPORTING
-*          number            = DATA(number_range_key)
-*          returncode        = DATA(number_range_return_code)
-*          returned_quantity = DATA(number_range_returned_quantity)
-*      ).
-*      CATCH cx_number_ranges INTO DATA(lx_num_range).
-*        DATA(res) = lx_num_range->get_text(  ).
-*    ENDTRY.
-*
-**     number_range_returned_quantity = lines( mapped-leave ).
-*
-*    leave_num =  number_range_key - number_range_returned_quantity .
-*
-*    LOOP AT mapped-leave ASSIGNING FIELD-SYMBOL(<fs_leave>).
-*       leave_num += 1.
-*      <fs_leave>-leaveid = leave_num.
-*    ENDLOOP.
-*
-**    SELECT MAX( leaveid ) FROM zdevl_appr INTO @DATA(number_range_key).
-**    IF sy-subrc EQ 0.
-**      LOOP AT mapped-leave ASSIGNING FIELD-SYMBOL(<fs_leave>).
-**        <fs_leave>-leaveid = number_range_key + 1.
-**      ENDLOOP.
-**    ENDIF.
-*
-*  ENDMETHOD.
 
 ENDCLASS.
 
@@ -93,9 +30,6 @@ CLASS lhc_leave DEFINITION INHERITING FROM cl_abap_behavior_handler.
     METHODS rejectleave FOR MODIFY
       IMPORTING keys FOR ACTION leave~rejectleave RESULT result.
 
-    METHODS calculateleavekey FOR DETERMINE ON SAVE
-      IMPORTING keys FOR leave~calculateleavekey.
-
     METHODS earlynumbering_create FOR NUMBERING
       IMPORTING entities FOR CREATE Leave.
 
@@ -115,9 +49,6 @@ CLASS lhc_leave IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD rejectLeave.
-  ENDMETHOD.
-
-  METHOD CalculateLeaveKey.
   ENDMETHOD.
 
   METHOD earlynumbering_create.

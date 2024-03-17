@@ -7,7 +7,10 @@ define root view entity Z_I_APPR
       approved,
       appr_reas,
       req_date,
-
+      leave_req_by,
+      approved_by,
+      approved_on,
+      leave_exp,
 
       /*-- Admin data --*/
       @Semantics.user.createdBy: true

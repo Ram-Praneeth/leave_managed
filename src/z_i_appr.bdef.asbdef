@@ -6,8 +6,8 @@ persistent table zdevl_appr
 etag master local_last_changed_at
 lock master
 //authorization master ( global )
-//late numbering  //leaveid should be generated sequentailly using Number Range
-early numbering
+//late numbering
+early numbering  //leaveid should be generated sequentailly using Number Range
 {
   // standard operations for travel entity
   create;
@@ -32,7 +32,7 @@ early numbering
   //No validations
 
   // determination
-  determination CalculateLeaveKey on save { create; }
+//  determination CalculateLeaveKey on save { create; }
 
   mapping
        for Z_I_APPR corresponding;
